@@ -1,5 +1,4 @@
 const listaProdutos = [];
-let valorVendido;
 let saldoVendas=0;
 
 function adicionarProduto(nome, valor){
@@ -11,7 +10,7 @@ function venderProduto(nome) {
     for (let i = 0; i < listaProdutos.length; i++) {
         const element = listaProdutos[i];
         if (element.nome == nome) {
-            valorVendido = element.preco * 1.25;
+            let valorVendido = element.preco * 1.25;
             saldoVendas += valorVendido;
             listaProdutos.splice(i,1);
             console.log(`O produto vendido foi ${element.nome} e o valor foi ${valorVendido}`)
