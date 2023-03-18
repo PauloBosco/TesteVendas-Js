@@ -7,15 +7,21 @@ function adicionarProduto(nome, valor){
 }
 
 function venderProduto(nome) {
+    let encontrouElemento = false;
     for (let i = 0; i < listaProdutos.length; i++) {
-        const element = listaProdutos[i];
-        if (element.nome == nome) {
-            let valorVendido = element.preco * 1.25;
+        const elemento = listaProdutos[i];
+        if (elemento.nome == nome) {
+            let valorVendido = elemento.preco * 1.25;
             saldoVendas += valorVendido;
             listaProdutos.splice(i,1);
-            console.log(`O produto vendido foi ${element.nome} e o valor foi ${valorVendido}`)
-        }   
+            console.log(`O produto vendido foi ${elemento.nome} e o valor foi ${valorVendido}`);
+            encontrouElemento = true;
+        }     
     }
+    if(!encontrouElemento){
+        console.log(`Não foi ENCONTRADO o produto ${nome}`);
+    }
+
 }
 
 function saldoDeVendas() {
@@ -27,9 +33,9 @@ adicionarProduto("god",179);
 adicionarProduto("hunt",65);
 adicionarProduto("zomboid",28);
 
-venderProduto("god");
-venderProduto("hunt");
-venderProduto("zomboid");
+venderProduto("gode");
+//venderProduto("hunt");
+//venderProduto("zomboid");
 
 
 
