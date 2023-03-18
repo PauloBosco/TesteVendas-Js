@@ -14,14 +14,13 @@ function venderProduto(nome) {
             let valorVendido = elemento.preco * 1.25;
             saldoVendas += valorVendido;
             listaProdutos.splice(i,1);
-            console.log(`O produto vendido foi ${elemento.nome} e o valor foi ${valorVendido}`);
+            console.log(`O produto vendido foi ${elemento.nome} e o valor foi ${valorVendido.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})}`);
             encontrouElemento = true;
         }     
     }
     if(!encontrouElemento){
         console.log(`Não foi ENCONTRADO o produto ${nome}`);
     }
-
 }
 
 function saldoDeVendas() {
@@ -33,13 +32,14 @@ adicionarProduto("god",179);
 adicionarProduto("hunt",65);
 adicionarProduto("zomboid",28);
 
-venderProduto("gode");
-//venderProduto("hunt");
-//venderProduto("zomboid");
+venderProduto("god");
+venderProduto("hunt");
+venderProduto("zomboid");
 
 
 
 
 console.log(listaProdutos);
-console.log(saldoDeVendas());
+let saldoTotal = saldoDeVendas();
+console.log(`Total Vendas: ${saldoTotal.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})}`);
 
